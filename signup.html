@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SignUp</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+    </head>
+    <style>
+        body
+        {
+            background-image: url("images/mens/background.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+        .card{
+            background-color:#f8f9fa;
+        }
+    </style>
+    <body>
+        <div class="container">
+            <div class="card shadow mt-4 mb-4 text-dark">
+                <div class="card-body">
+                    <h4 class="text-dark text-center">LOGIN FORM</h4>
+                    <hr>
+                    <form class="form-row font-weight-bolder" method="post" action="signup.php" onsubmit=" return valid()">
+                        <div class="col-12 col-md-6">
+                            <label for="Firstname">FirstName</label>
+                            <input type="text" class="form-control" name="first" id="Firstname" required>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label for="LastName">LastName</label>
+                            <input type="text" class="form-control" name="last" id="LastName" required>
+                        </div>
+                        <div class="col-12">
+                            <label for="user">UserName</label>
+                            <input type="text" class="form-control" name="username" id="user" required>
+                        </div>
+                        <div class="col-12">
+                            <label for="EmailId">Email </label>
+                            <input type="email" class="form-control" name="email" id="EmailId" required>
+                        </div>
+                        <div class="col-12">
+                            <label for="EmailId">Address </label>
+                           <textarea class="form-control" rows="5" name="address" required></textarea>
+                        </div>
+                        <div class="col-12 ">
+                            <label for="phone">Phone</label>
+                            <input type="number" class="form-control" name="phone" id="phone" required>
+                        </div>
+                        <div class="col-12">
+                            <label for="pass">Password</label>
+                            <input type="password" class="form-control" name="pass" id="pass" required>
+                            <small class="font-weight-bolder"><output id="output" class="text-danger"></output></small>
+                        </div>
+                        <div class="col-12">
+                            <label for="cpass">ConForm Password</label>
+                            <input type="password" class="form-control" name="cpass" id="cpass" required>
+                        </div>
+                        <div class="col-12">
+                            <br>
+                           <button type="submit" class="btn btn-info form-control">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        function valid()
+        {
+        var pass=document.getElementById("pass").value;
+        var cpass=document.getElementById("cpass").value;
+        var output=document.getElementById("output")
+        console.log(pass+" "+cpass)
+        if(pass==cpass)
+        {
+            return true;
+        }
+        else
+            output.innerHTML="*Password not match";
+            return false;
+        }
+    </script>
+</html>
